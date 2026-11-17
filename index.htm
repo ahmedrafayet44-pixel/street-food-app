@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Street Food – আপনার পছন্দের খাবার</title>
+<style>
+:root{
+  --bg:#fff8ef;--card:#ffffff;--text:#2b2118;--muted:#7a6a5c;--brand:#f97316;--brand2:#ea580c;--chip:#ffedd5;--line:#f3e3d0;--shadow:0 6px 24px rgba(234,88,12,.12);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#1b1511;--card:#271e18;--text:#f7eee4;--muted:#b9a794;--chip:#3a2a1d;--line:#3a2c20;--shadow:0 6px 24px rgba(0,0,0,.4)}
+}
+:root[data-theme="dark"]{--bg:#1b1511;--card:#271e18;--text:#f7eee4;--muted:#b9a794;--chip:#3a2a1d;--line:#3a2c20;--shadow:0 6px 24px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Hind Siliguri","Noto Sans Bengali",system-ui,-apple-system,Arial,sans-serif;line-height:1.6}
+.hero{background:linear-gradient(135deg,#fb923c,#ea580c 60%,#c2410c);color:#fff;padding:36px 18px 70px;text-align:center;border-radius:0 0 32px 32px;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero::before{width:180px;height:180px;top:-60px;left:-50px}
+.hero::after{width:140px;height:140px;bottom:-40px;right:-30px}
+.logo{font-size:44px;margin-bottom:4px}
+.hero h1{margin:0;font-size:30px;letter-spacing:.3px}
+.hero p{margin:8px auto 0;max-width:420px;opacity:.95}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.search{margin-top:-28px;position:relative;z-index:2}
+.search input{width:100%;padding:16px 18px 16px 48px;border:1px solid var(--line);border-radius:16px;font-size:16px;background:var(--card);color:var(--text);box-shadow:var(--shadow);font-family:inherit}
+.search input:focus{outline:2px solid var(--brand)}
+.search span{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:18px}
+.cats{display:flex;gap:10px;overflow-x:auto;padding:18px 0 6px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:9px 16px;border-radius:999px;background:var(--chip);color:var(--brand2);font-weight:600;font-size:14px;border:0;font-family:inherit}
+.chip.on{background:var(--brand);color:#fff}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:24px 18px;margin-top:18px;text-align:center}
+.card h2{margin:0 0 6px;color:var(--brand2);font-size:24px}
+.card p{margin:6px 0;color:var(--muted)}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.mode{border:2px solid var(--line);border-radius:16px;padding:16px 8px;background:var(--bg)}
+.mode .ic{font-size:30px}
+.mode b{display:block;margin-top:4px}
+.mode small{color:var(--muted)}
+.steps{display:grid;gap:12px;margin-top:6px;text-align:left}
+.step{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow)}
+.num{flex:none;width:38px;height:38px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700}
+.step b{display:block}
+.step span{color:var(--muted);font-size:14px}
+h3.sec{margin:28px 0 4px;font-size:20px}
+.badge{display:inline-flex;gap:8px;align-items:center;margin-top:18px;background:#fee2e2;color:#b91c1c;padding:10px 16px;border-radius:999px;font-weight:700}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge{background:#4a1d1d;color:#fca5a5}}
+:root[data-theme="dark"] .badge{background:#4a1d1d;color:#fca5a5}
+.cta{display:block;width:100%;margin-top:20px;padding:15px;border:0;border-radius:16px;background:linear-gradient(90deg,var(--brand),var(--brand2));color:#fff;font-size:17px;font-weight:700;font-family:inherit;box-shadow:0 8px 20px rgba(234,88,12,.35)}
+footer{text-align:center;padding:30px 16px 40px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="logo">🍔</div>
+  <h1>Street Food</h1>
+  <p>আপনার পছন্দের খাবার, আপনার কাছের দোকানে</p>
+</header>
+
+<div class="wrap">
+  <div class="search">
+    <span>🔍</span>
+    <input type="search" placeholder="খাবার বা দোকানের নাম লিখুন...">
+  </div>
+
+  <div class="cats">
+    <button class="chip on">🍽️ সব</button>
+    <button class="chip">🍗 ফুচকা-চটপটি</button>
+    <button class="chip">🥟 সমুচা-পুরি</button>
+    <button class="chip">🍢 কাবাব</button>
+    <button class="chip">🥤 পানীয়</button>
+    <button class="chip">🍰 মিষ্টি</button>
+  </div>
+
+  <section class="card">
+    <h2>স্বাগতম! 👋</h2>
+    <p>আপনার পছন্দের খাবার আগে থেকেই অর্ডার করুন।</p>
+    <div class="modes">
+      <div class="mode"><div class="ic">🛍️</div><b>Pickup</b><small>নিজে এসে নিন</small></div>
+      <div class="mode"><div class="ic">🪑</div><b>Dine-in</b><small>দোকানে বসে খান</small></div>
+    </div>
+    <div class="badge">🚫 কোনো হোম ডেলিভারি নেই</div>
+    <button class="cta">অর্ডার শুরু করুন</button>
+  </section>
+
+  <h3 class="sec">কীভাবে কাজ করে?</h3>
+  <div class="steps">
+    <div class="step"><div class="num">১</div><div><b>খাবার বেছে নিন</b><span>পছন্দের দোকান ও মেনু দেখুন</span></div></div>
+    <div class="step"><div class="num">২</div><div><b>Pickup বা Dine-in</b><span>আপনার সুবিধামতো সময় ঠিক করুন</span></div></div>
+    <div class="step"><div class="num">৩</div><div><b>দোকানে গিয়ে সংগ্রহ করুন</b><span>নির্ধারিত সময়ে গরম খাবার নিন</span></div></div>
+  </div>
+</div>
+
+<footer>© 2026 Street Food Marketplace</footer>
+</body>
+</html>
